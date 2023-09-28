@@ -1,0 +1,23 @@
+{
+  "name": "mod-repo-9",
+  "version": "1.0.0",
+  "description": "Repository for Module 9 challenge",
+  "main": "one.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nightfeller/mod-repo-9.git"
+  },
+  "keywords": [
+    "README",
+    "Generator"
+  ],
+  "author": "Matthew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nightfeller/mod-repo-9/issues"
+  },
+  "homepage": "https://github.com/Nightfeller/mod-repo-9#readme"
+}
