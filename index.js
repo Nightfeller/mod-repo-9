@@ -1,9 +1,8 @@
 // TODO: Include packages needed for this application
 const inquire = require('inquirer');
 const fs = require('fs');
-const gM = require('generateMarkdown');
+ const gM = import('generateMarkdown');
 // TODO: Create an array of questions for user input
-
 
 var titleAnswer;
 
@@ -14,7 +13,7 @@ inquire.prompt([
         name: 'titleName'
     }
 ]).then(response =>
-       response !== null 
+       response !== null || response == "undefined"
        ? titleAnswer = response.titleName
        : console.log("Error of unknown origin has appeared.")
     );
