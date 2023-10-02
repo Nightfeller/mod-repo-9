@@ -29,4 +29,18 @@ function generateMarkdown(data) {
 // `;
 }
 
-module.exports = generateMarkdown;
+function renderTitle(title) {
+    return `# ${title}\n`;
+}
+
+function renderDescription(desc) {
+    return `\n## Description
+    
+    ${desc}`;
+}
+
+module.exports = {
+    generateMarkdown,
+    renderTitle,
+    renderDescription,
+}
