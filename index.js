@@ -16,6 +16,27 @@ inquire.prompt([
         type: 'input',
         message: 'What is the description?',
         name: 'descName'
+    },
+    {
+        type: 'input',
+        message: 'What is the usage?',
+        name: 'usageName'
+    },
+    {
+        type: 'input',
+        message: 'What are the installation instructions?',
+        name: 'installName'
+    },
+    {
+        type: 'list',
+        message: 'What liscense do you want?',
+        name: 'liscName',
+        choices: [
+            'MIT',
+            'ISC',
+            'MPL 2.0',
+            'Apache 2.0'
+        ]
     }
 ]).then((response) => {
        response !== null || response == "undefined"
@@ -25,8 +46,19 @@ inquire.prompt([
             console.log(response);
             fs.writeFile("README.md", "", (err) => err ? console.error(err) : console.log('README cleared.') );
             // appendToFile("README.md", JSON.stringify(response));
-            appendToFile("README.md", gM.renderTitle(response.titleName));
-            appendToFile("README.md", gM.renderDescription(response.descName));
+            
+            (async function(response) {
+              try {
+                await appendToFile("README.md", gM.renderTitle(response.titleName));
+                await appendToFile("README.md", gM.renderDescription(response.descName));
+                await appendToFile("README.md", gM.renderUsage(response.usageName));
+                await appendToFile("README.md", gM.renderInstallation(response.installName));
+              } catch (error) {
+                console.error('there was an error:', error.message);
+              }
+            })('/tmp/hello');
+
+            
         }
     }
     );

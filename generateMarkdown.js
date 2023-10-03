@@ -36,11 +36,53 @@ function renderTitle(title) {
 function renderDescription(desc) {
     return `\n## Description
     
-    ${desc}`;
+    ${desc}\n`;
+}
+
+function renderTOC(toc) {
+    return `\n## Table of Contents
+    
+    ${toc}\n`;
+}
+
+function renderInstallation(inst) {
+    return `\n##Installation
+    
+    ${inst}\n`;
+}
+
+function renderUsage(use) {
+    return `\n##Usage
+    
+    ${use}\n`;
+}
+
+function renderContributing(contr) {
+    return `\n##Contributing
+    
+    ${contr}\n`;
+}
+
+function renderTests(tes) {
+    return `\n##Tests
+    
+    ${tes}\n`;
+}
+
+function renderQuestions(quest) {
+    return `\n##Questions
+    
+    ${quest}\n`;
 }
 
 module.exports = {
     generateMarkdown,
     renderTitle,
     renderDescription,
+    renderTOC,
+    renderInstallation,
+    renderUsage,
+    renderContributing,
+    renderTests,
+    renderQuestions,
 }
