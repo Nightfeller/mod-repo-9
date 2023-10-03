@@ -24,13 +24,35 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-//   return `# ${data.title}
-    return "here";
-// `;
+  return `# ${data.titleName}
+
+   ## Description
+  
+      ${data.descName}
+
+   ## Usage
+
+      ${data.usageName}
+
+   ## Installation
+
+      ${data.installName}
+
+   ## Questions
+
+      My Github username: ${data.githubName}
+      My email address: ${data.githubEmail}
+
+      
+   ## Liscense
+
+      ${data.licenseName}
+
+`;
 }
 
 function renderTitle(title) {
-    return `# ${title}\n`;
+    return `\n# ${title}\n`;
 }
 
 function renderDescription(desc) {
@@ -46,33 +68,35 @@ function renderTOC(toc) {
 }
 
 function renderInstallation(inst) {
-    return `\n##Installation
+    return `\n## Installation
     
     ${inst}\n`;
 }
 
 function renderUsage(use) {
-    return `\n##Usage
+    return `\n## Usage
     
     ${use}\n`;
 }
 
 function renderContributing(contr) {
-    return `\n##Contributing
+    return `\n## Contributing
     
     ${contr}\n`;
 }
 
 function renderTests(tes) {
-    return `\n##Tests
+    return `\n## Tests
     
     ${tes}\n`;
 }
 
-function renderQuestions(quest) {
-    return `\n##Questions
+function renderQuestions(username, email) {
+    return `\n## Questions
     
-    ${quest}\n`;
+    My Github username: ${username}
+
+    My email address: ${email}\n`;
 }
 
 module.exports = {

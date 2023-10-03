@@ -28,9 +28,19 @@ inquire.prompt([
         name: 'installName'
     },
     {
+        type: 'input',
+        message: 'What is your Github username?',
+        name: 'githubName'
+    },
+    {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'githubEmail'
+    },
+    {
         type: 'list',
         message: 'What liscense do you want?',
-        name: 'liscName',
+        name: 'liscenseName',
         choices: [
             'MIT',
             'ISC',
@@ -46,19 +56,7 @@ inquire.prompt([
             console.log(response);
             fs.writeFile("README.md", "", (err) => err ? console.error(err) : console.log('README cleared.') );
             // appendToFile("README.md", JSON.stringify(response));
-            
-            (async function(response) {
-              try {
-                await appendToFile("README.md", gM.renderTitle(response.titleName));
-                await appendToFile("README.md", gM.renderDescription(response.descName));
-                await appendToFile("README.md", gM.renderUsage(response.usageName));
-                await appendToFile("README.md", gM.renderInstallation(response.installName));
-              } catch (error) {
-                console.error('there was an error:', error.message);
-              }
-            })('/tmp/hello');
-
-            
+            appendToFile("README.md", gM.generateMarkdown(response));
         }
     }
     );
