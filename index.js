@@ -4,7 +4,7 @@ const fs = require('fs');
  const gM = require('./generateMarkdown');
 // TODO: Create an array of questions for user input
 
-var titleAnswer;
+// var titleAnswer;
 
 inquire.prompt([
     {
@@ -29,6 +29,16 @@ inquire.prompt([
     },
     {
         type: 'input',
+        message: 'Who else contributed?',
+        name: 'contrName'
+    },
+    {
+        type: 'input',
+        message: 'How would I test this?',
+        name: 'testingName'
+    },
+    {
+        type: 'input',
         message: 'What is your Github username?',
         name: 'githubName'
     },
@@ -40,12 +50,13 @@ inquire.prompt([
     {
         type: 'list',
         message: 'What liscense do you want?',
-        name: 'liscenseName',
+        name: 'licenseName',
         choices: [
             'MIT',
             'ISC',
             'MPL 2.0',
-            'Apache 2.0'
+            'Apache 2.0',
+            'None'
         ]
     }
 ]).then((response) => {
@@ -69,9 +80,7 @@ function appendToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {
-    
-}
+function init() {}
 
 // Function call to initialize app
 init();
