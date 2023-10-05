@@ -1,7 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-
-
 
 function renderLicenseBadge(license) {
     console.log(license);
@@ -23,30 +19,40 @@ function renderLicenseBadge(license) {
             case 'Apache 2.0':
                 licenseMarkdown = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
                 break;
+            case 'None':
+            default:
+                licenseMarkdown = "";
+                break;
         } 
     }
     return licenseMarkdown; 
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-// function renderLicenseLink(license) {
-//     if (license == null  || license == 'undefined') { return " "; } else {
-
-//     }
-// }
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
+        var licenseMarkdown = "";  
     if (license == null  || license == 'undefined') { return " "; } else {
-        // TODO: Add code from lines 6-29 and modify it to say something similar to the following...
-
-        // "This site is licensed under {license name goes here}. For more information, go to {license URL goes here}."
+        
+        switch(license) {
+            case 'MIT':
+                licenseMarkdown = "This site is licensed under MIT. For more information, go to https://opensource.org/licenses/MIT.";
+                break;
+            case 'ISC':
+                licenseMarkdown = "This site is licensed under ISC. For more information, go to https://opensource.org/licenses/ISC.";
+                break;
+            case 'MPL 2.0':
+                licenseMarkdown = "This site is licensed under MPL 2.0. For more information, go to https://opensource.org/licenses/MPL-2.0.";
+                break;
+            case 'Apache 2.0':
+                licenseMarkdown = "This site is licensed under Apache 2.0. For more information, go to https://opensource.org/licenses/Apache-2.0.";
+                break;
+            case 'None':
+            default:
+                licenseMarkdown = "";
+        } 
     }
+    return licenseMarkdown; 
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
     
   return `# ${data.titleName} ${renderLicenseBadge(data.licenseName)}
@@ -87,67 +93,11 @@ My email address: ${data.githubEmail}
 
 ## License
 
-${data.licenseName}
+${renderLicenseSection(data.licenseName)}
 
 `;
 }
 
-// function renderTitle(title) {
-//     return `\n# ${title}\n`;
-// }
-
-// function renderDescription(desc) {
-//     return `\n## Description
-    
-//     ${desc}\n`;
-// }
-
-// function renderTOC(toc) {
-//     return `\n## Table of Contents
-    
-//     ${toc}\n`;
-// }
-
-// function renderInstallation(inst) {
-//     return `\n## Installation
-    
-//     ${inst}\n`;
-// }
-
-// function renderUsage(use) {
-//     return `\n## Usage
-    
-//     ${use}\n`;
-// }
-
-// function renderContributing(contr) {
-//     return `\n## Contributing
-    
-//     ${contr}\n`;
-// }
-
-// function renderTests(tes) {
-//     return `\n## Tests
-    
-//     ${tes}\n`;
-// }
-
-// function renderQuestions(username, email) {
-//     return `\n## Questions
-    
-//     My Github username: ${username}
-
-//     My email address: ${email}\n`;
-// }
-
 module.exports = {
     generateMarkdown,
-    // renderTitle,
-    // renderDescription,
-    // renderTOC,
-    // renderInstallation,
-    // renderUsage,
-    // renderContributing,
-    // renderTests,
-    // renderQuestions,
 }
