@@ -47,7 +47,7 @@ function renderLicenseSection(license) {
                 break;
             case 'None':
             default:
-                licenseMarkdown = "";
+                licenseMarkdown = "This site isn't licensed under anything.";
         } 
     }
     return licenseMarkdown; 
@@ -64,7 +64,7 @@ function generateMarkdown(data) {
 4. [Contributing](#contributing)
 5. [Tests](#tests)
 6. [Questions](#questions)
-7. [Liscense](#liscense)
+7. [License](#license)
 
 ## Description
   
